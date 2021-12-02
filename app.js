@@ -32,7 +32,7 @@ function addBook(event){
 }
 
 function deleteBook(book){
-
+//proov
 }
 function deleteBookFromLS(ISBN){
 
