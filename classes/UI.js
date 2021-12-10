@@ -31,7 +31,7 @@ class UI {
         // create <td> element
         let td = this.addUIElement('td')
         // create <a> element
-        const link = this.addUIElement('a', '', 'X', {'href':'#'})
+        const link = this.addUIElement('a', '', 'X', {'href':'#', 'class':'delButton'})
         // add link to td
         td.appendChild(link)
         // add td to tr
@@ -39,5 +39,9 @@ class UI {
         // add tr to tbody
         const booksList = document.querySelector('#books-list')
         booksList.appendChild(tr)
+    }
+    // delete book from UI
+    deleteBook(e){
+        e.target.parentElement.parentElement.remove();
     }
 }

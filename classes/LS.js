@@ -7,7 +7,6 @@ class LS {
         } else {
             data = JSON.parse(localStorage.getItem(name))
         }
-        console.log(data)
         return data
     }
 
@@ -15,8 +14,17 @@ class LS {
         localStorage.setItem(name, JSON.stringify(data))
     }
     addBook(book){
-        let books = this.getData('books')
+        let books = this.getData('books');
         books.push(book);
-        this.setData('books', books)
+        this.setData('books', books);
+    }
+    deleteBook(bookTitle, bookAuthor, bookIsbn){
+        let books = this.getData('books');
+        books.forEach(function(lsBook, index){
+            if(lsBook.title === bookTitle && lsBook.author === bookAuthor && lsBook.isbn === bookIsbn){
+                books.splice(index, 1);
+            }else{}
+        })
+        localStorage.setItem('books', JSON.stringify(books));
     }
 }
